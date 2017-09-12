@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/materialize/css/materialize.min.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Atendimentos</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<form action="#" id="form">
+					<div class="col s12 m12 l6 xl6">
+						<div class="input-field col s6">
+							<i class="material-icons prefix">account_circle</i>
+							<input id="name" name="name" type="text" class="validate" required pattern="[A-Za-z]{3,}">
+							<label for="name" data-error="Mínimo 3 caracteres" data-success="Ok">Nome</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">phone</i>
+							<input id="ramal" name="ramal" type="number" class="validate" required min="0" max="1000">
+							<label for="ramal" data-error="0 à 1000" data-success="Ok">Ramal</label>
+						</div>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">subject</i>
+							<textarea id="subject" name="subject" class="materialize-textarea validate" required></textarea>
+							<label for="subject">Assunto</label>
+						</div>
+						<div class="col s12 push-s1">
+							<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+							<i class="material-icons right">send</i>
+						</button>
+						</div>
+					</div>
+				</form>
+				<div class="col s12 m12 l6 xl6" id="cards">
+					
+				</div>		
+			</div>
+		</div>
+		<script src="assets/jquery/jquery.min.js"></script>
+      <script src="assets/materialize/js/materialize.min.js"></script>
+      <script src="app.js"></script>
+	</body>
+</html>
