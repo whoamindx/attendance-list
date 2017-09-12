@@ -41,3 +41,19 @@ let deleta = function(date){
 }
 // Once you load the page, load the data
 window.onload = () => repeat();
+
+// Backup
+document.getElementById('backup').addEventListener("click",function(){
+	for(let x in localStorage){
+		document.getElementById('backup-code').value += "localStorage['"+x+"']="+JSON.stringify(localStorage[x])+";";
+	}
+});
+
+// Import
+document.getElementById('import').addEventListener("click",function(){
+	let code = document.getElementById('import-code').value
+	eval(code);
+	$('#cards').empty();
+	repeat();
+	document.getElementById('import-code').value = "";
+});
