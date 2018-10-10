@@ -38,24 +38,25 @@ $('#form').submit(function(e){
 let repeat = () => {
 	let i = 0;
 	for (key in localStorage){
-		const card = JSON.parse(localStorage[key]);
-		$('#cards').append(
-			`<div class="card blue-grey darken-1" id="info-${i}">
-				<div class="card-content white-text" style="overflow: hidden;">
-					<span class="card-title">${card.name}</span>
-					<p>${card.subject}</p>
-				</div>
-				<div class="card-action">
-					<a href="#" onclick="event.preventDefault()">Ramal: ${card.ramal}</a>
-					<a class="waves-effect waves-light btn" id="excluir" onclick="deleta(${key})">Excluir</a>
-					<a class="waves-effect waves-light btn" id="editar" onclick="edita(${key},'info-${i}','${card.ramal}')">Editar</a>
-				</div>
-			</div>`
-		)
-		i++;
+		if (typeof localStorage[key] == "string"){
+			const card = JSON.parse(localStorage[key]);
+			$('#cards').append(
+				`<div class="card blue-grey darken-1" id="info-${i}">
+					<div class="card-content white-text" style="overflow: hidden;">
+						<span class="card-title">${card.name}</span>
+						<p>${card.subject}</p>
+					</div>
+					<div class="card-action">
+						<a href="#" onclick="event.preventDefault()">Ramal: ${card.ramal}</a>
+						<a class="waves-effect waves-light btn" id="excluir" onclick="deleta(${key})">Excluir</a>
+						<a class="waves-effect waves-light btn" id="editar" onclick="edita(${key},'info-${i}','${card.ramal}')">Editar</a>
+					</div>
+				</div>`
+			)
+			i++;
+		}
 	}
 };
-
 // Delete the data based on the key (date)
 let deleta = (keyCard) => {
 	localStorage.removeItem(keyCard);
