@@ -108,7 +108,9 @@ let update = (key, ramal) => {
 // Backup
 document.getElementById('backup').addEventListener("click", () => {
 	for(let x in localStorage){
-		document.getElementById('backup-code').value += "localStorage['"+x+"']=" + JSON.stringify(localStorage[x]) + ";";
+		if (typeof localStorage[x] == "string"){
+			document.getElementById('backup-code').value += "localStorage['"+x+"']=" + JSON.stringify(localStorage[x]) + ";";
+		}
 	}
 });
 
